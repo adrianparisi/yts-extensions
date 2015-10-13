@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name        YTS-Extensions
+// @name        YTS-extensions
 // @description Visible ratings and navigation with arrows to YTS.to web page.
 // @author      Adrián Parisi
-// @homepageURL https://github.com/adrianparisi/yts-rating
+// @homepageURL https://github.com/adrianparisi/yts-extensions
 // @include     http://yts.to/browse-movies*
 // @include     https://yts.to/browse-movies*
 // @version     0.2
@@ -64,11 +64,15 @@ function addNavigation() {
     var follow;
 
     if (e.keyCode === left || e.keyCode === right) {
-      var page = parseInt(getParameterByName('page'));
+      var page = getParameterByName('page');
+      page = page ? parseInt(page) : 1;
 
       if (e.keyCode === left) {
-        if (page && page != 1) {
+        if (page && page !== 1) {
           follow = updateQueryStringParameter(url, 'page', page - 1);
+        }
+        else {
+          follow = url;
         }
       }
       else if (e.keyCode === right) {
@@ -85,7 +89,9 @@ function addNavigation() {
         }
       }
 
-      window.location.replace(follow);
+      if (follow !== url) {
+        window.location.replace(follow);
+      }
     }
   });
 }
