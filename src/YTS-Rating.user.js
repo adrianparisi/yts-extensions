@@ -3,8 +3,8 @@
 // @description Visible ratings and navigation with arrows to YTS.to web page.
 // @author      Adrián Parisi
 // @homepageURL https://github.com/adrianparisi/yts-extensions
-// @include     http://yts.to/browse-movies*
-// @include     https://yts.to/browse-movies*
+// @include     http://yts.am/browse-movies*
+// @include     https://yts.am/browse-movies*
 // @version     0.2
 // @grant       none
 // ==/UserScript==
